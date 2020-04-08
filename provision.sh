@@ -38,7 +38,7 @@ echo -e "${GREEN}Creating databases and users...${NC}"
 docker exec -i edx.devstack.mysql mysql -uroot mysql < provision.sql
 docker exec -i edx.devstack.mongo mongo < mongo-provision.js
 
-./provision-lms.sh
+#./provision-lms.sh
 
 # Nothing special needed for studio
 docker-compose $DOCKER_COMPOSE_FILES up -d studio
@@ -46,7 +46,7 @@ docker-compose $DOCKER_COMPOSE_FILES up -d studio
 #./provision-discovery.sh
 #./provision-credentials.sh
 #./provision-e2e.sh
-./provision-forum.sh
+#./provision-forum.sh
 #./provision-notes.sh
 ./provision-edraak.sh
 
