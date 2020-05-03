@@ -216,7 +216,7 @@ services:
     volumes:
       - devpi_data:/data
 
-  edraak_programs:
+  edraak-programs:
     image: eu.gcr.io/openedx-231314/edraak/progs
     environment:
       PROGS_CFG: '/app/docker.json'
@@ -231,7 +231,7 @@ services:
       - mongo
       - memcached
 
-  edraak_programs_gulp:
+  edraak-programs-gulp:
     image: eu.gcr.io/openedx-231314/edraak/progs
     environment:
       NODE_ENV: development
@@ -242,7 +242,7 @@ services:
       - mysql
       - memcached
 
-  edraak_marketing:
+  edraak-marketing:
     image: eu.gcr.io/openedx-231314/edraak/marketing
     environment:
       NODE_ENV: development
@@ -255,7 +255,7 @@ services:
       - mysql
       - memcached
 
-  edraak_marketing_gulp:
+  edraak-marketing-gulp:
     image: eu.gcr.io/openedx-231314/edraak/marketing
     environment:
       NODE_ENV: development
@@ -280,8 +280,8 @@ services:
     depends_on:
       - lms
       - studio
-      - edraak_marketing
-      - edraak_programs
+      - edraak-marketing
+      - edraak-programs
     networks:
       default:
         aliases:

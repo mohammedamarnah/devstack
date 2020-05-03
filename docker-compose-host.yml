@@ -33,16 +33,16 @@ services:
   forum:
     volumes:
       - ${DEVSTACK_WORKSPACE}/cs_comments_service:/edx/app/forum/cs_comments_service:cached
-  edraak_programs:
+  edraak-programs:
     volumes:
       - ${DEVSTACK_WORKSPACE}/edraak-programs:/app:cached
-  edraak_programs_gulp:
+  edraak-programs-gulp:
     volumes:
       - ${DEVSTACK_WORKSPACE}/edraak-programs:/app:cached
-  edraak_marketing:
+  edraak-marketing:
     volumes:
       - ${DEVSTACK_WORKSPACE}/marketing-site:/app:cached
-  edraak_marketing_gulp:
+  edraak-marketing-gulp:
     volumes:
       - ${DEVSTACK_WORKSPACE}/marketing-site:/app:cached
 
