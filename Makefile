@@ -17,6 +17,7 @@ export DEVSTACK_WORKSPACE
 export COMPOSE_PROJECT_NAME
 
 include *.mk
+include ./shadinaif/Makefile.mk
 
 # Generates a help message. Borrowed from https://github.com/pydanny/cookiecutter-djangopackage.
 help: ## Display this help message
