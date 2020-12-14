@@ -32,6 +32,8 @@ edraak.programs.help:
 	echo "manage:               Run any manage.py command"
 	echo "shell:                Open bash inside docker container"
 	echo "copy_cache:           Copy node_modules, installed at build time, to the current app"
+	echo "makemessages:         Create po files with new transaltions strings"
+	echo "compilemessages:      Compile translation po file to mo files"
 	echo "help:                 Print help and exit"
 	echo ""
 
@@ -43,6 +45,12 @@ edraak.programs.langs_push:
 
 edraak.programs.langs_pull:
 	docker-compose exec edraak_programs python manage.py langs_pull --settings=edraakprograms.dev
+
+edraak.programs.makemessages:
+	docker-compose exec edraak_programs python manage.py makemessages --settings=edraakprograms.dev
+
+edraak.programs.compilemessages:
+	docker-compose exec edraak_programs python manage.py compilemessages --settings=edraakprograms.dev
 
 edraak.programs.compile_static:
 	docker-compose exec edraak_programs python manage.py compilestatic --settings=edraakprograms.static
@@ -58,6 +66,9 @@ edraak.programs.copy_cache:
 
 edraak.programs.gulp:
 	docker-compose exec edraak_programs gulp
+
+ edraak.marketing.gulp:
+	docker-compose exec edraak_marketing gulp
 
 edraak.programs.watch:
 	docker exec -t edraak.devstack.programs bash -c 'while true; do npx gulp watch; sleep 2; done'

@@ -281,7 +281,7 @@ services:
       - lms
       - studio
       - edraak_marketing
-      - edraak_programs
+#      - edraak_programs
     networks:
       default:
         aliases:
