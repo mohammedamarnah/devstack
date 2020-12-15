@@ -3,9 +3,9 @@ version: "2.1"
 services:
   edraak_programs:
     volumes:
-      - ${DEVSTACK_WORKSPACE}/edraak-programs:/app:cached
+      - ${DEVSTACK_WORKSPACE}/edraak-programs:/app
       - ~/.ssh/:/root/.ssh
-      - ${DEVSTACK_WORKSPACE}/src:/src:cached
+      - ${DEVSTACK_WORKSPACE}/src:/edx/src
 #  edraak_programs_gulp:
 #    volumes:
 #      - ${DEVSTACK_WORKSPACE}/edraak-programs:/app:cached
