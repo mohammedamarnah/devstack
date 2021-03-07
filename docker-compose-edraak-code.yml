@@ -1,0 +1,26 @@
+version: '3'
+
+
+services:
+  edraak_code:
+    image: devstack_edraak_code:latest
+    build:
+      context: .
+      dockerfile: ./edraak_code/Dockerfile
+    container_name: edraak.devstack.code
+    ports:
+    - "18300:80"
+    volumes:
+      - ${DEVSTACK_WORKSPACE}/code-dot-org:/apps/code-dot-org
+      - code_mysqldata:/var/lib/mysql
+      - code_rbenv:/root/.rbenv
+      - code_yarncache:/root/.cache
+    working_dir: /apps/code-dot-org
+    tty: true
+    command: bash -c '../provision_or_run2.sh'
+
+
+volumes:
+  code_mysqldata:
+  code_rbenv:
+  code_yarncache:

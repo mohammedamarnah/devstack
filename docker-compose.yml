@@ -292,7 +292,6 @@ services:
           - programs.edraak.dev
           - edraak.dev
 
-
 volumes:
 #  discovery_assets:
   edxapp_lms_assets:

@@ -141,7 +141,8 @@ stop.xqueue:
 
 down: ## Remove all service containers and networks
 	(test -d .docker-sync && docker-sync clean) || true ## Ignore failure here
-	docker-compose -f docker-compose.yml -f docker-compose-watchers.yml -f docker-compose-xqueue.yml -f docker-compose-analytics-pipeline.yml down
+	docker-compose -f docker-compose.yml -f docker-compose-watchers.yml -f docker-compose-xqueue.yml \
+	-f docker-compose-analytics-pipeline.yml -f docker-compose-edraak-code.yml down
 
 destroy: ## Remove all devstack-related containers, networks, and volumes
 	./destroy.sh

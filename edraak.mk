@@ -117,3 +117,24 @@ edraak.restart:  ## Restart all of the lms, studio, marketing and progs
 	make programs-restart
 	make lms-restart
 	make studio-restart
+
+edraak.with_code.up:  ## Bring the devstack up including edraak_code
+	docker-compose -f docker-compose.yml -f docker-compose-host.yml -f docker-compose-edraak-code.yml up -d
+
+edraak.with_code.up.attached:  ## Bring the devstack up including edraak_code
+	docker-compose -f docker-compose.yml -f docker-compose-host.yml -f docker-compose-edraak-code.yml up
+
+edraak.with_code.reset_code_db_and_provision:
+	docker-compose exec bash -c '../provision.sh';
+
+edraak.with_code.build_edraak_code:  ## Rebuild edraak_code image using cache
+	docker-compose -f docker-compose-edraak-code.yml build edraak_code
+
+edraak.with_code.rebuild_edraak_code:  ## Rebuild edraak_code image without using cache
+	docker-compose -f docker-compose-edraak-code.yml build --no-cache edraak_code
+
+edraak.with_code.shell:  ## Bash into edraak_code
+	docker-compose -f docker-compose-edraak-code.yml exec edraak_code bash
+
+edraak.with_code.logs:  ## Logs of containers includig edraak_code
+	docker-compose -f docker-compose.yml -f docker-compose-analytics-pipeline.yml  -f docker-compose-edraak-code.yml logs -f --tail 0
