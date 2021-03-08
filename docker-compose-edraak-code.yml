@@ -9,7 +9,7 @@ services:
       dockerfile: ./edraak_code/Dockerfile
     container_name: edraak.devstack.code
     ports:
-    - "18300:80"
+    - "3000:3000"
     volumes:
       - ${DEVSTACK_WORKSPACE}/code-dot-org:/apps/code-dot-org
       - code_mysqldata:/var/lib/mysql
