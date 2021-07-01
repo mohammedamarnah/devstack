@@ -36,11 +36,11 @@ done
 # In the event of a fresh MySQL container, wait a few seconds for the server to restart
 # This can be removed once https://github.com/docker-library/mysql/issues/245 is resolved.
 sleep 10
+echo -e "MySQL ready"
 
 printf "Creating mongo usres"
 docker exec -i edx.devstack.mongo mongo < mongo-provision.js
 
-echo -e "MySQL ready"
 
 if $ENABLE_EDX; then
   ./provision-lms.sh
