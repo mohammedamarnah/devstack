@@ -5,6 +5,7 @@ b2b.help:
 	@echo ""
 	@echo "Commands:"
 	@echo "migrate:              Run django migrations i.e. python manage.py migrate"
+	@echo "makemigrations:       Run django makemigrations i.e. python manage.py migrate makemigrations"
 	@echo "langs_push:           Run django langs_push command i.e. python manage.py langs_push"
 	@echo "langs_pull:           Run django langs_pull command i.e. python manage.py langs_pull"
 	@echo "install_pip:          Install python dependencies in 'requirements.txt' file"
@@ -19,12 +20,26 @@ b2b.help:
 	@echo "provision:            Run provision script, prepare the env"
 	@echo "restart:              Restart the container"
 	@echo "manage <Command>:     Run any manage.py command"
+	@echo "createsuperuser:     Run any manage.py createsuperuser"
 	@echo "fix-npm:              Fix .npm folder ownership issue"
 	@echo "help:                 Print help and exit"
 	@echo ""
 
 b2b.migrate:
 	docker-compose `echo ${DOCKER_COMPOSE_FILES}` exec b2b python manage.py migrate --settings=edraakprograms.dev
+
+b2b.makemigrations:
+	docker-compose `echo ${DOCKER_COMPOSE_FILES}` exec b2b python manage.py makemigrations --settings=edraakprograms.dev
+
+
+b2b.createsuperuser:
+	docker-compose `echo ${DOCKER_COMPOSE_FILES}` exec b2b python manage.py createsuperuser --settings=edraakprograms.dev
+
+b2b.makemessages:
+	docker-compose `echo ${DOCKER_COMPOSE_FILES}` exec b2b python manage.py makemessages --settings=edraakprograms.dev
+
+b2b.compilemessages:
+	docker-compose `echo ${DOCKER_COMPOSE_FILES}` exec b2b python manage.py compilemessages --settings=edraakprograms.dev
 
 b2b.langs_push:
 	docker-compose `echo ${DOCKER_COMPOSE_FILES}` exec b2b python manage.py langs_push --settings=edraakprograms.dev
